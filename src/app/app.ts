@@ -1,12 +1,22 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
+import {Contact} from './contact/contact';
+import {LoadingService} from './services/loading-service';
+import {Preloader} from './preloader/preloader';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Contact, Preloader],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
-  protected readonly title = signal('pitlane');
+  #loadingService = inject(LoadingService);
+
+  isLoading= this.#loadingService.isLoading;
+
+  constructor() {
+    this.#loadingService.hide();
+  }
 }
