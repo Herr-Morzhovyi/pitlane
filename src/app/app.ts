@@ -1,8 +1,7 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {Contact} from './contact/contact';
-import {LoadingService} from './services/loading-service';
+import {LoadingService} from './services/loading.service';
 import {Preloader} from './preloader/preloader';
-import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',

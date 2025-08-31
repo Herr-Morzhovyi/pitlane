@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 import {providePrimeNG} from 'primeng/config';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {MyPreset} from '../theme-preset';
-import {LoadingService} from './services/loading-service';
+import {LoadingService} from './services/loading.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

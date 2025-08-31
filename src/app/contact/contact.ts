@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Button} from 'primeng/button';
 import {Textarea} from 'primeng/textarea';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -7,6 +7,7 @@ import {Divider} from 'primeng/divider';
 import {InputText} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import {SelectModule} from 'primeng/select';
+import {ContactService} from '../services/contact.service';
 interface SourceOption {
   label: string;
   value: string;
@@ -22,12 +23,13 @@ interface SourceOption {
     InputText,
     InputMaskModule,
     SelectModule,
-    NgOptimizedImage
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
 export class Contact {
+  #contact = inject(ContactService);
+
   contactForm: FormGroup;
   submitted = false;
 
@@ -56,8 +58,11 @@ export class Contact {
     this.submitted = true;
 
     if (this.contactForm.valid) {
-      console.log('Form submitted:', this.contactForm.value);
-      // Handle form submission here
+      const payload = this.contactForm.getRawValue();
+      this.#contact.send(payload).subscribe({
+        next: () => this.contactForm.reset(),
+        error: (e) => console.error(e),
+      });
     }
   }
 }
