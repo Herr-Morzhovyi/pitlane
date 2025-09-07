@@ -1,0 +1,48 @@
+<div id="reviews" class="section-container">
+  <div id="reviews-header" class="reviews-header">
+    <h1 class="text-6xl font-bold">{{ sectionData.Title }}</h1>
+    <span class="text-2xl">{{ sectionData.Text }}</span>
+  </div>
+  <div id="review-carousel" class="carousel-container">
+    <p-carousel
+      [value]="slidesData"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+    >
+      <ng-template let-slide #item>
+        <div id="review-card" class="review-card">
+          <div id="photo" class="client-photo"></div>
+          <div
+            id="review-text"
+            class="review-text gap-3 border border-[#1f2937] rounded-md"
+          >
+            <div id="stars" class="flex gap-1">
+              <i
+                *ngFor="let item of [].constructor(slide.Rating); let i = index"
+                class="pi pi-star-fill text-primary"
+              ></i>
+            </div>
+
+            <span class="">"{{ slide.reviewText }}"</span>
+            <span class="text-primary">{{ slide.clientName }}</span>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div id="review-stats" class="flex justify-center w-100 review-stats">
+    <div id="happy-clients">
+      <h2 class="text-primary">{{ sectionData.happyClients }}+</h2>
+      <span> Happy Clients</span>
+    </div>
+    <div id="avg-rating">
+      <h2 class="text-primary">{{ sectionData.averageRating }}/5</h2>
+      <span> Happy Clients</span>
+    </div>
+    <div id="satisfaction-rating">
+      <h2 class="text-primary">{{ sectionData.satisfactionRate }}%</h2>
+      <span> Satisfaction rating</span>
+    </div>
+  </div>
+</div>
