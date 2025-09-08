@@ -1,16 +1,13 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ContactService {
+export class WordpressService {
   #http = inject(HttpClient);
 
-  // #url = 'http://localhost:1337/api/messages';
-
-  send(payload: any) {
-    return of(null);
+  getFrontPage() {
+    return this.#http.get('https://pitlain.brigada-dev.com/wp-json/wp/v2/pages/6');
   }
 }
