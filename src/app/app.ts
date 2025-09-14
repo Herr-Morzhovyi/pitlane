@@ -3,10 +3,11 @@ import {Contact} from './contact/contact';
 import {LoadingService} from './services/loading.service';
 import {Preloader} from './preloader/preloader';
 import {WordpressService} from './services/wordpress.service';
+import {Hero} from './hero/hero';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader],
+  imports: [Contact, Preloader, Hero],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,7 +21,10 @@ export class App {
   constructor() {
     this.#loadingService.hide();
     this.#wp.getFrontPage().subscribe({
-      next: (data) => console.log(data),
+      next: (data) => {
+        console.log(data);
+        this.#wp.frontPage.set(data);
+      },
       error: (e) => console.error(e),
     });
   }

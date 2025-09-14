@@ -1,0 +1,82 @@
+section {
+  position: relative;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(86, 86, 86, 0.00) 60%, #404040 100%);
+  }
+
+  .container {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    .hero-texts {
+      height: 100%;
+      display: flex;
+      max-width: 50%;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+      h1 {
+        margin-bottom: 8px;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      h2 {
+        margin-bottom: 32px;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+  }
+
+
+}
+.hero-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 500px;
+  width: 50vw;
+  img.featured-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  img:not(.featured-image):nth-child(3) {
+    position: absolute;
+    top: 408px;
+    left: 17px;
+    width: 350px;
+  }
+  img:not(.featured-image):nth-child(2) {
+    position: absolute;
+    top: 250px;
+    left: -46px;
+    width: 300px;
+  }
+  img:not(.featured-image):nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: -22px;
+    width: 350px;
+  }
+
+  .darken-overlay {
+    background: linear-gradient(270deg, rgba(217, 217, 217, 0.00) 0%, #040406 100%);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+  }
+}
