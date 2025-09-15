@@ -1,5 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,9 @@ import {HttpClient} from '@angular/common/http';
 export class ContactService {
   #http = inject(HttpClient);
 
-  #url = 'http://localhost:1337/api/messages';
+  // #url = 'http://localhost:1337/api/messages';
 
   send(payload: any) {
-    return this.#http.post(this.#url, { data: payload });
+    return of(null);
   }
 }

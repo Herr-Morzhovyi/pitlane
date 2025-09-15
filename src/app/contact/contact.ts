@@ -46,7 +46,7 @@ export class Contact {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
-      source: ['', Validators.required],
+      wheredidyouhear: ['', Validators.required],
       message: ['', Validators.required]
     });
   }
