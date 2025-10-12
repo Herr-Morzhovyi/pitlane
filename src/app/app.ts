@@ -1,22 +1,23 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {Contact} from './contact/contact';
-import {LoadingService} from './services/loading.service';
-import {Preloader} from './preloader/preloader';
-import {WordpressService} from './services/wordpress.service';
-import {Hero} from './hero/hero';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Contact } from './contact/contact';
+import { LoadingService } from './services/loading.service';
+import { Preloader } from './preloader/preloader';
+import { WordpressService } from './services/wordpress.service';
+import { Hero } from './hero/hero';
+import { Header } from './header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero],
+  imports: [Contact, Preloader, Hero, Header],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   #loadingService = inject(LoadingService);
   #wp = inject(WordpressService);
 
-  isLoading= this.#loadingService.isLoading;
+  isLoading = this.#loadingService.isLoading;
 
   constructor() {
     this.#loadingService.hide();
@@ -27,5 +28,13 @@ export class App {
       },
       error: (e) => console.error(e),
     });
+  }
+
+  scroll(el: string) {
+    if (el === 'logo') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    document.querySelector(el)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
