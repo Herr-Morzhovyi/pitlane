@@ -5,10 +5,11 @@ import { Preloader } from './preloader/preloader';
 import { WordpressService } from './services/wordpress.service';
 import { Hero } from './hero/hero';
 import { Header } from './header/header';
+import { Gallery } from './gallery/gallery';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero, Header],
+  imports: [Contact, Preloader, Hero, Header, Gallery],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

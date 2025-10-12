@@ -2,12 +2,20 @@
   max-width: 1280px;
   padding: 174px 0;
   position: relative;
-
 }
 
 .contact-form-wrapper {
   padding: 88px 32px 32px 32px;
-  background-image: radial-gradient(82.95% 35.21% at 77.88% 98.92%,rgba(115,89,58,.12) 23.77%,rgba(90,79,65,0) 80.53%),radial-gradient(76.32% 33.64% at 47.78% 4.3%,rgba(63,67,98,.2) 15.23%,rgba(63,67,98,0) 80.53%);
+  background-image: radial-gradient(
+      82.95% 35.21% at 77.88% 98.92%,
+      rgba(115, 89, 58, 0.12) 23.77%,
+      rgba(90, 79, 65, 0) 80.53%
+    ),
+    radial-gradient(
+      76.32% 33.64% at 47.78% 4.3%,
+      rgba(63, 67, 98, 0.2) 15.23%,
+      rgba(63, 67, 98, 0) 80.53%
+    );
   background-color: rgb(11 12 14);
   position: relative;
   z-index: 1;
@@ -39,16 +47,20 @@
         height: 50%;
         width: 50%;
         fill: white;
-        box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
 }
 
 .bg-1-gradient {
-  background-image: radial-gradient(50% 50% at 50% 50%, #383d58 0, rgba(56,61,88,0) 100%);
+  background-image: radial-gradient(
+    50% 50% at 50% 50%,
+    #383d58 0,
+    rgba(56, 61, 88, 0) 100%
+  );
   transform: translateY(-50%);
-  opacity: .3;
+  opacity: 0.3;
   width: 900px;
   height: 600px;
   z-index: 10;
@@ -64,6 +76,6 @@
   top: 15%;
   right: 20px;
   pointer-events: none;
-  opacity: .3;
+  opacity: 0.3;
   transform: scale(3);
 }

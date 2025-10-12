@@ -1,0 +1,25 @@
+.gallery-container {
+  background-color: white;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-weight: semibold;
+  font-size: 32px;
+  color: black;
+  padding: 80px 0 60px 0;
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.show-more-button {
+  padding: 80px 0 150px 0;
+}
