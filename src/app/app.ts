@@ -31,6 +31,10 @@ export class App {
   }
 
   scroll(el: string) {
+    if (el === 'logo') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     document.querySelector(el)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
