@@ -14,4 +14,8 @@ export class Header {
   scroll(el: string) {
     this.onClick.emit(el);
   }
+
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
