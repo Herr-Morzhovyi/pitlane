@@ -29,6 +29,12 @@ export class App {
       },
       error: (e) => console.error(e),
     });
+
+    this.#wp.getGallery().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+    })
   }
 
   scroll(el: string) {
