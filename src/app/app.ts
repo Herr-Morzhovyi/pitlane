@@ -6,6 +6,7 @@ import { WordpressService } from './services/wordpress.service';
 import { Hero } from './hero/hero';
 import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
+import { GalleryService } from './services/gallery.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { Gallery } from './gallery/gallery';
 export class App {
   #loadingService = inject(LoadingService);
   #wp = inject(WordpressService);
+  #gallery = inject(GalleryService);
 
   isLoading = this.#loadingService.isLoading;
 
@@ -31,10 +33,12 @@ export class App {
     });
 
     this.#wp.getGallery().subscribe({
-      next: (data) => {
-        console.log(data);
+      next: (data: any) => {
+        this.#gallery.rawImages.set(data.images);
+        this.#gallery.currentPage.set(data.current_page);
+        this.#gallery.pagesCount.set(data.total_pages);
       },
-    })
+    });
   }
 
   scroll(el: string) {

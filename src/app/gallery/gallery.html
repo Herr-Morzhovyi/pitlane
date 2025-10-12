@@ -1,6 +1,10 @@
 <section class="gallery-container">
-  <h1 class="title">{{ title() }}</h1>
-  <div *ngIf="images() && images().length > 0" class="images-container">
+  <h1 class="title">Gallery</h1>
+  <div
+    *ngIf="images() && images().length > 0"
+    class="images-container"
+    [class.extra-padding]="hideButton()"
+  >
     <div *ngFor="let image of images(); let index = index" key="index">
       <img
         width="240px"
@@ -29,5 +33,10 @@
     </ng-template>
   </p-galleria>
 
-  <app-primary-btn class="show-more-button" [label]="'Show More'" />
+  <app-primary-btn
+    *ngIf="!hideButton()"
+    class="show-more-button"
+    [label]="'Show More'"
+    (click)="showMore()"
+  />
 </section>

@@ -20,6 +20,27 @@
   gap: 20px;
 }
 
+.images-container > div {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+.extra-padding {
+  padding: 0 0 80px 0;
+}
+
 .show-more-button {
   padding: 80px 0 150px 0;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
