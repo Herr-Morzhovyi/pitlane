@@ -1,0 +1,14 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px 5px 20px;
+  background-color: rgb(4 4 6);
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  cursor: pointer;
+}

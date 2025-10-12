@@ -4,11 +4,12 @@ import { LoadingService } from './services/loading.service';
 import { Preloader } from './preloader/preloader';
 import { WordpressService } from './services/wordpress.service';
 import { Hero } from './hero/hero';
+import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero, Gallery],
+  imports: [Contact, Preloader, Hero, Header, Gallery],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,5 +29,13 @@ export class App {
       },
       error: (e) => console.error(e),
     });
+  }
+
+  scroll(el: string) {
+    if (el === 'logo') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    document.querySelector(el)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

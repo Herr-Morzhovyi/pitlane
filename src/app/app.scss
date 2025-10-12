@@ -1,4 +1,11 @@
 .main {
   background-color: rgb(4 4 6);
   min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
