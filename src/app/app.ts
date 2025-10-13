@@ -6,10 +6,10 @@ import { WordpressService } from './services/wordpress.service';
 import { Hero } from './hero/hero';
 import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
-
+import { Footer } from './footer/footer';
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero, Header, Gallery],
+  imports: [Contact, Preloader, Hero, Header, Gallery, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,7 +34,7 @@ export class App {
       next: (data) => {
         console.log(data);
       },
-    })
+    });
   }
 
   scroll(el: string) {
