@@ -11,18 +11,6 @@ export class GalleryService {
   pagesCount: WritableSignal<number> = signal(0);
   currentPage: WritableSignal<number> = signal(1);
 
-  setGalleryData(imagesArr: any[]) {
-    if (!imagesArr) return [];
-    return imagesArr.map((img) => {
-      return {
-        itemImageSrc: img.caption,
-        thumbnailImageSrc: img.caption,
-        alt: img.title,
-        title: img.title,
-      };
-    });
-  }
-
   showMore() {
     if (this.currentPage() >= this.pagesCount()) return;
 

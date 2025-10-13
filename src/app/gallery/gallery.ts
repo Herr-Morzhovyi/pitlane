@@ -3,12 +3,14 @@ import { GalleriaModule } from 'primeng/galleria';
 import { CommonModule } from '@angular/common';
 import { PrimaryBtn } from '../common/primary-btn/primary-btn';
 import { GalleryService } from '../services/gallery.service';
+import { fadeInScaleAnimation } from '../animations/animations/animations';
 
 @Component({
   selector: 'app-gallery',
   imports: [GalleriaModule, CommonModule, PrimaryBtn],
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
+  animations: [fadeInScaleAnimation],
 })
 export class Gallery {
   #gallery = inject(GalleryService);
@@ -16,9 +18,8 @@ export class Gallery {
   displayCustom: boolean = false;
   activeIndex: number = 0;
 
-  images = computed(() =>
-    this.#gallery.setGalleryData(this.#gallery.rawImages())
-  );
+  images = computed(() => this.#gallery.rawImages());
+
   hideButton = computed(
     () => this.#gallery.currentPage() >= this.#gallery.pagesCount()
   );
