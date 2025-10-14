@@ -1,8 +1,8 @@
 <section class="gallery-container">
   <h2 class="title">Gallery</h2>
-  @if(images() && images().length > 0){
+  @if(images()?.length){
   <div class="images-container" [class.extra-padding]="hideButton()">
-    @for(image of images(); track image; let index = $index) {
+    @for(image of images(); track image.title) {
     <div @fadeInScale>
       <img
         width="240px"
@@ -10,7 +10,7 @@
         [src]="image.caption"
         [alt]="image.title"
         style="cursor: pointer"
-        (click)="imageClick(index)"
+        (click)="imageClick($index)"
       />
     </div>
     }

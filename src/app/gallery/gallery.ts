@@ -18,7 +18,7 @@ export class Gallery {
   displayCustom: boolean = false;
   activeIndex: number = 0;
 
-  images = computed(() => this.#gallery.rawImages());
+  images = this.#gallery.rawImages;
 
   hideButton = computed(
     () => this.#gallery.currentPage() >= this.#gallery.pagesCount()
