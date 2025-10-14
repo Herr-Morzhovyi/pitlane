@@ -7,6 +7,7 @@ import { Hero } from './hero/hero';
 import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
 import { Footer } from './footer/footer';
+import { BreakpointService } from './services/breakpoint.service';
 @Component({
   selector: 'app-root',
   imports: [Contact, Preloader, Hero, Header, Gallery, Footer],
@@ -17,6 +18,7 @@ import { Footer } from './footer/footer';
 export class App {
   #loadingService = inject(LoadingService);
   #wp = inject(WordpressService);
+  #breakPoint = inject(BreakpointService);
 
   isLoading = this.#loadingService.isLoading;
 
@@ -33,6 +35,12 @@ export class App {
     this.#wp.getGallery().subscribe({
       next: (data) => {
         console.log(data);
+      },
+    });
+
+    this.#breakPoint.checkMobile().subscribe({
+      next: (res) => {
+        this.#breakPoint.IsMobile.set(res.matches);
       },
     });
   }

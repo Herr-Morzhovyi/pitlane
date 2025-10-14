@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { Divider } from 'primeng/divider';
+import { BreakpointService } from '../services/breakpoint.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +9,8 @@ import { Divider } from 'primeng/divider';
   styleUrl: './footer.scss',
   standalone: true,
 })
-export class Footer {}
+export class Footer {
+  #breakPoint = inject(BreakpointService);
+
+  isMobile = computed(() => this.#breakPoint.IsMobile());
+}

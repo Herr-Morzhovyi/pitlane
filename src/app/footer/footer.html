@@ -1,4 +1,39 @@
 <footer class="p-4">
+  @if (isMobile()) {
+  <p-divider></p-divider>
+  <div class="mobile-footer-container">
+    <div class="logo-container">
+      <img
+        src="assets/pitlane.svg"
+        alt="Pitlane Logo"
+        width="230"
+        height="120"
+      />
+    </div>
+    <p-divider></p-divider>
+    <section>
+      <p>Address address 14-023</p>
+      <p>Phone 2324309235834</p>
+      <p>Email adsadas2@dfasdf.fs</p>
+
+      <p>Working hours</p>
+      <p>9:00 - 18:00 Pn-Pt</p>
+      <p>9:00 - 16:00 Sb</p>
+      <p>---- Sv</p>
+    </section>
+    <p-divider></p-divider>
+
+    <section>
+      <a>Facebook</a>
+      <a>Instagram</a>
+      <a>VK</a>
+      <a>Telegram</a>
+      <a>Whatsapp</a>
+      <a>Youtube</a>
+    </section>
+  </div>
+
+  } @else {
   <p-divider></p-divider>
   <div class="footer-container">
     <div class="logo-container">
@@ -36,4 +71,5 @@
       </section>
     </div>
   </div>
+  }
 </footer>
