@@ -1,17 +1,22 @@
 <section class="gallery-container">
-  <h1 class="title">{{ title() }}</h1>
-  <div *ngIf="images() && images().length > 0" class="images-container">
-    <div *ngFor="let image of images(); let index = index" key="index">
+  <h2 class="title">Gallery</h2>
+  @if(images()?.length){
+  <div class="images-container" [class.extra-padding]="hideButton()">
+    @for(image of images(); track image.title) {
+    <div @fadeInScale>
       <img
         width="240px"
         height="240px"
-        [src]="image.thumbnailImageSrc"
-        [alt]="image.alt"
+        [src]="image.caption"
+        [alt]="image.title"
         style="cursor: pointer"
-        (click)="imageClick(index)"
+        (click)="imageClick($index)"
       />
     </div>
+    }
   </div>
+  }
+
   <p-galleria
     [value]="images()"
     [(visible)]="displayCustom"
@@ -25,9 +30,15 @@
     [showThumbnails]="false"
   >
     <ng-template #item let-item>
-      <img [src]="item.itemImageSrc" style="width: 100%; display: block" />
+      <img [src]="item.caption" style="width: 100%; display: block" />
     </ng-template>
   </p-galleria>
 
-  <app-primary-btn class="show-more-button" [label]="'Show More'" />
+  @if(!hideButton()){
+  <app-primary-btn
+    class="show-more-button"
+    label="Show More"
+    (click)="showMore()"
+  />
+  }
 </section>
