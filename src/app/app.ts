@@ -8,6 +8,8 @@ import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
 import { Footer } from './footer/footer';
 import { BreakpointService } from './services/breakpoint.service';
+import { GalleryService } from './services/gallery.service';
+
 @Component({
   selector: 'app-root',
   imports: [Contact, Preloader, Hero, Header, Gallery, Footer],
@@ -19,6 +21,7 @@ export class App {
   #loadingService = inject(LoadingService);
   #wp = inject(WordpressService);
   #breakPoint = inject(BreakpointService);
+  #gallery = inject(GalleryService);
 
   isLoading = this.#loadingService.isLoading;
 
@@ -33,8 +36,10 @@ export class App {
     });
 
     this.#wp.getGallery().subscribe({
-      next: (data) => {
-        console.log(data);
+      next: (data: any) => {
+        this.#gallery.rawImages.set(data.images);
+        this.#gallery.currentPage.set(data.current_page);
+        this.#gallery.pagesCount.set(data.total_pages);
       },
     });
 
