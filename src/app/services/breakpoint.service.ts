@@ -1,6 +1,6 @@
-import { Injectable, WritableSignal, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +8,11 @@ import { Observable } from 'rxjs';
 export class BreakpointService {
   #breakPointObserver = inject(BreakpointObserver);
 
-  IsMobile: WritableSignal<boolean> = signal(false);
+  readonly mobileBreakPoint: string = '(max-width: 600px)';
+  readonly desktopBreakPoint: string = '(min-width: 1096px)';
 
-  checkMobile(): Observable<any> {
-    return this.#breakPointObserver.observe('(max-width: 1096px)');
-  }
+  isMobile = toSignal(this.#breakPointObserver.observe(this.mobileBreakPoint));
+  isDesktop = toSignal(
+    this.#breakPointObserver.observe(this.desktopBreakPoint)
+  );
 }

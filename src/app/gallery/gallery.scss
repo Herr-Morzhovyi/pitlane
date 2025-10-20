@@ -14,10 +14,27 @@
   padding: 80px 0 60px 0;
 }
 
+.mobile-title {
+  text-align: center;
+  font-weight: semibold;
+  font-size: 32px;
+  color: black;
+  padding: 20px 0 10px 0;
+}
+
 .images-container {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  @media only screen and (min-width: 990px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media only screen and (min-width: 1400px) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 .extra-padding {
@@ -26,4 +43,8 @@
 
 .show-more-button {
   padding: 80px 0 150px 0;
+}
+
+.card {
+  padding-bottom: 20px;
 }

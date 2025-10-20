@@ -12,5 +12,7 @@ import { BreakpointService } from '../services/breakpoint.service';
 export class Footer {
   #breakPoint = inject(BreakpointService);
 
-  isMobile = computed(() => this.#breakPoint.IsMobile());
+  isDesktop = computed(() => {
+    return this.#breakPoint.isDesktop()?.matches;
+  });
 }

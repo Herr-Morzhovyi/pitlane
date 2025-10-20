@@ -1,6 +1,27 @@
 <section class="gallery-container">
+  @if(isMobile()) {
+  <h2 class="mobile-title">Gallery</h2>
+  <div class="card">
+    <p-galleria
+      [value]="images()"
+      [autoPlay]="true"
+      [numVisible]="5"
+      [circular]="true"
+      [showItemNavigators]="true"
+      [showThumbnails]="false"
+      [containerStyle]="{ 'max-width': '640px' }"
+    >
+      <ng-template #item let-item>
+        <img
+          [src]="item.caption"
+          height="320px"
+          style="width: 100%; max-width: 992px; display: block"
+        />
+      </ng-template>
+    </p-galleria>
+  </div>
+  } @else { @if(images()?.length){
   <h2 class="title">Gallery</h2>
-  @if(images()?.length){
   <div class="images-container" [class.extra-padding]="hideButton()">
     @for(image of images(); track image.title) {
     <div @fadeInScale>
@@ -15,16 +36,11 @@
     </div>
     }
   </div>
-  }
-
   <p-galleria
     [value]="images()"
     [(visible)]="displayCustom"
     [(activeIndex)]="activeIndex"
-    [responsiveOptions]="responsiveOptions"
-    [containerStyle]="{ 'max-width': '850px' }"
-    [numVisible]="7"
-    [circular]="true"
+    [containerStyle]="{ 'max-width': '600px', width: '100%' }"
     [fullScreen]="true"
     [showItemNavigators]="true"
     [showThumbnails]="false"
@@ -33,12 +49,11 @@
       <img [src]="item.caption" style="width: 100%; display: block" />
     </ng-template>
   </p-galleria>
-
-  @if(!hideButton()){
+  } @if(!hideButton()){
   <app-primary-btn
     class="show-more-button"
     label="Show More"
     (click)="showMore()"
   />
-  }
+  } }
 </section>
