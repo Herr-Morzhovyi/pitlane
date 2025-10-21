@@ -5,10 +5,11 @@ import { PrimaryBtn } from '../common/primary-btn/primary-btn';
 import { GalleryService } from '../services/gallery.service';
 import { BreakpointService } from '../services/breakpoint.service';
 import { fadeInScaleAnimation } from '../animations/animations/animations';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-gallery',
-  imports: [GalleriaModule, CommonModule, PrimaryBtn],
+  imports: [GalleriaModule, CommonModule, PrimaryBtn, Carousel],
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
   animations: [fadeInScaleAnimation],

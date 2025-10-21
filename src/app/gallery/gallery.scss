@@ -26,13 +26,10 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
-  @media only screen and (min-width: 990px) {
+  @media only screen and (min-width: 720px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   @media only screen and (min-width: 1200px) {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  @media only screen and (min-width: 1400px) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
@@ -47,4 +44,25 @@
 
 .card {
   padding-bottom: 20px;
+}
+
+.carousel {
+  max-width: 90vw;
+  overflow: hidden;
+
+  img {
+    display: flex;
+    justify-self: center;
+  }
+}
+
+img:not(.pop-up) {
+  filter: brightness(0.9);
+  border-radius: 8px;
+}
+
+img:hover:not(.pop-up) {
+  transform: scale(1.03);
+  transition: 200ms;
+  filter: brightness(1);
 }

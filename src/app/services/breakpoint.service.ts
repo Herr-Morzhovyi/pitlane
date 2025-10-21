@@ -8,7 +8,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class BreakpointService {
   #breakPointObserver = inject(BreakpointObserver);
 
-  readonly mobileBreakPoint: string = '(max-width: 600px)';
+  readonly mobileBreakPoint: string = '(max-width: 650px)';
   readonly desktopBreakPoint: string = '(min-width: 1096px)';
 
   isMobile = toSignal(this.#breakPointObserver.observe(this.mobileBreakPoint));
