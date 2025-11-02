@@ -1,14 +1,19 @@
-.gallery-container {
+section {
   background-color: white;
+}
+
+.gallery-container {
   display: grid;
   justify-content: center;
   justify-items: center;
+  margin: 0 auto;
   width: 100%;
+  max-width: 1280px;
 }
 
 .title {
   text-align: center;
-  font-weight: semibold;
+  font-weight: 600;
   font-size: 32px;
   color: black;
   padding: 80px 0 60px 0;
@@ -16,7 +21,7 @@
 
 .mobile-title {
   text-align: center;
-  font-weight: semibold;
+  font-weight: 600;
   font-size: 32px;
   color: black;
   padding: 20px 0 10px 0;
@@ -31,6 +36,16 @@
   }
   @media only screen and (min-width: 1200px) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.single-image-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -56,6 +71,11 @@
   }
 }
 
+img.pop-up {
+  width: 100%;
+  display: block;
+}
+
 img:not(.pop-up) {
   filter: brightness(0.9);
   border-radius: 8px;
@@ -65,4 +85,13 @@ img:hover:not(.pop-up) {
   transform: scale(1.03);
   transition: 200ms;
   filter: brightness(1);
+}
+
+:host ::ng-deep {
+  .p-galleria-content {
+    max-height: 80vh;
+  }
+  .p-galleria-items {
+    height: 80vh;
+  }
 }

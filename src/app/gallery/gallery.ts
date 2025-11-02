@@ -23,19 +23,24 @@ export class Gallery {
 
   images = this.#gallery.rawImages;
 
-  hideButton = computed(
+  allShown = computed(
     () => this.#gallery.currentPage() >= this.#gallery.pagesCount()
   );
   isMobile = computed(() => {
     return this.#breakPoint.isMobile()?.matches;
   });
 
-  imageClick(index: number) {
+  imageClick(index: number): void {
     this.activeIndex = index;
     this.displayCustom = true;
   }
 
-  showMore() {
+  toggleShowMore(): void {
+    if (this.allShown()) {
+      this.#gallery.rawImages.update((images) => images.slice(0, 10));
+      this.#gallery.currentPage.set(1);
+      return;
+    }
     this.#gallery.showMore();
   }
 }
