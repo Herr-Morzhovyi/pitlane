@@ -1,0 +1,17 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  h2 {
+    text-align: center;
+    margin: 40px auto 16px auto;
+  }
+  p {
+    text-align: center;
+  }
+  .plans-grid {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    margin-top: 60px;
+  }
+}

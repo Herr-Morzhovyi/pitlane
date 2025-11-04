@@ -1,0 +1,206 @@
+:host {
+  position: relative;
+  display: flex;
+  flex: 1;
+  .card {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(10px);
+    height: 100%;
+    padding: 32px 24px;
+    display: grid;
+    grid-template-rows: auto auto auto minmax(60px, auto) auto auto 1fr;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    // Glossy effect
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+    }
+
+    // Bloom effect
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        transparent 70%
+      );
+      opacity: 0.5;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 48px rgba(255, 255, 255, 0.1);
+      transform: translateY(-4px);
+
+      &::after {
+        width: 300px;
+        height: 300px;
+        opacity: 0.8;
+      }
+    }
+
+    .badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .price {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      position: relative;
+      z-index: 1;
+
+      .amount {
+        font-size: 48px;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+      }
+
+      .period {
+        font-size: 14px;
+        color: #a7a7a7;
+      }
+    }
+
+    .description {
+      color: #a7a7a7;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    app-primary-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+
+      ::ng-deep p-button button {
+        width: 100%;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+
+    .feature-title {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      span {
+        color: #a7a7a7;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #e0e0e0;
+        font-size: 14px;
+
+        i {
+          color: #4ade80;
+          font-size: 16px;
+          flex-shrink: 0;
+        }
+
+        span {
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  // Highlighted card style (for "Most Popular")
+  &.highlighted .card {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+
+    &::after {
+      opacity: 0.7;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}

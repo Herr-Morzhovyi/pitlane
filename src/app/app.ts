@@ -8,10 +8,11 @@ import { Header } from './header/header';
 import { Gallery } from './gallery/gallery';
 import { Footer } from './footer/footer';
 import { GalleryService } from './services/gallery.service';
+import {Pricing} from './pricing/pricing';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero, Header, Gallery, Footer],
+  imports: [Contact, Preloader, Hero, Header, Gallery, Footer, Pricing],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,14 @@
+<section>
+  <div class="container">
+    <h2>Simple and affordable pricing</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+      voluptatum.
+    </p>
+    <div class="plans-grid">
+      @for (plan of plans(); track plan.title) {
+        <app-pricing-card [plan]="plan" />
+      }
+    </div>
+  </div>
+</section>
