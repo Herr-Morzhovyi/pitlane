@@ -1,14 +1,14 @@
-import {Component, input, InputSignal, signal, WritableSignal} from '@angular/core';
+import {Component, inject, input, InputSignal, signal, WritableSignal} from '@angular/core';
 import {PrimaryBtn} from '../primary-btn/primary-btn';
 import {Divider} from 'primeng/divider';
 import {DecimalPipe} from '@angular/common';
+import {ContactService} from '../../services/contact.service';
 
-export interface PricingCardProps {
+export interface PricingPlan {
   title: string;
   price: number;
+  features: { feature: string; }[];
   description: string;
-  features: string[];
-  badge?: string;
 }
 
 @Component({
@@ -22,5 +22,11 @@ export interface PricingCardProps {
   styleUrl: './pricing-card.scss'
 })
 export class PricingCard {
-  plan: InputSignal<PricingCardProps> = input.required<PricingCardProps>();
+  #contactService = inject(ContactService);
+  plan: InputSignal<PricingPlan> = input.required();
+
+  autofillContactForm(planTitle: string): void {
+    this.#contactService.autoFillContactForm(planTitle);
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

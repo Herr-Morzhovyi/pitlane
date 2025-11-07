@@ -1,11 +1,10 @@
 <section class="relative">
   <span class="bg-1-gradient"></span>
   <div class="container">
-    <h2>Simple and affordable pricing</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      voluptatum.
-    </p>
+    <h2>{{ title() }}</h2>
+    <p>{{
+      subtitle()
+    }}</p>
     <div class="plans-grid">
       @for (plan of plans(); track plan.title) {
         <app-pricing-card [plan]="plan" />

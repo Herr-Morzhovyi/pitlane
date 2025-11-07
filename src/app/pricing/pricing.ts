@@ -1,5 +1,6 @@
-import {Component, signal, WritableSignal} from '@angular/core';
-import {PricingCard, PricingCardProps} from '../common/pricing-card/pricing-card';
+import {Component, computed, inject} from '@angular/core';
+import {PricingCard} from '../common/pricing-card/pricing-card';
+import {WordpressService} from '../services/wordpress.service';
 
 @Component({
   selector: 'app-pricing',
@@ -10,29 +11,9 @@ import {PricingCard, PricingCardProps} from '../common/pricing-card/pricing-card
   styleUrl: './pricing.scss'
 })
 export class Pricing {
-  plans: WritableSignal<PricingCardProps[]> = signal([]);
-  mockPlans: PricingCardProps[] = [
-    {
-      title: 'Basic',
-      price: 100,
-      description: 'Basic plan lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      features: ['Feature 1', 'Feature 2', 'Feature 3']
-    },
-    {
-      title: 'Premium',
-      price: 200,
-      description: 'Premium plan lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4']
-    },
-    {
-      title: 'Enterprise',
-      price: 300,
-      description: 'Enterprise plan lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4', 'Feature 5']
-    }
-  ];
+  #wp = inject(WordpressService);
 
-  constructor() {
-    this.plans.set(this.mockPlans);
-  }
+  title = computed(() => this.#wp.frontPage()?.pricing_title);
+  subtitle = computed(() => this.#wp.frontPage()?.pricing_subtitle);
+  plans = computed(() => this.#wp.frontPage()?.pricing_items);
 }

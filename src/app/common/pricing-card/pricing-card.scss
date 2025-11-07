@@ -15,7 +15,7 @@
     height: 100%;
     padding: 32px 24px;
     display: grid;
-    grid-template-rows: auto auto auto minmax(60px, auto) auto auto 1fr;
+    grid-template-rows: auto auto minmax(100px, auto) 60px auto auto 1fr;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;

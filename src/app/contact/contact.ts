@@ -28,9 +28,9 @@ interface SourceOption {
   styleUrl: './contact.scss'
 })
 export class Contact {
-  #contact = inject(ContactService);
+  contact = inject(ContactService);
 
-  contactForm: FormGroup;
+
   submitted = false;
 
   sourcesOptions: SourceOption[] = [
@@ -41,26 +41,18 @@ export class Contact {
     { label: 'Other', value: 'other' }
   ];
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: [''],
-      wheredidyouhear: ['', Validators.required],
-      message: ['', Validators.required]
-    });
-  }
+  constructor() {
+    this.contact.createForm();
 
-  ngOnInit() {
   }
 
   onSubmit() {
     this.submitted = true;
 
-    if (this.contactForm.valid) {
-      const payload = this.contactForm.getRawValue();
-      this.#contact.send(payload).subscribe({
-        next: () => this.contactForm.reset(),
+    if (this.contact.contactForm.valid) {
+      const payload = this.contact.contactForm.getRawValue();
+      this.contact.send(payload).subscribe({
+        next: () => this.contact.contactForm.reset(),
         error: (e) => console.error(e),
       });
     }

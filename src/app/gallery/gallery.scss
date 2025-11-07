@@ -2,6 +2,11 @@ section {
   background-color: white;
 }
 
+:host ::ng-deep p-carousel .p-carousel-item {
+  display: flex;
+  justify-content: center;
+}
+
 .gallery-container {
   display: grid;
   justify-content: center;

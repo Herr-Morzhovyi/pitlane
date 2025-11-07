@@ -111,7 +111,7 @@
             </svg>
           </div>
         </div>
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="flex flex-column gap-4">
+        <form [formGroup]="contact.contactForm" (ngSubmit)="onSubmit()" class="flex flex-column gap-4">
           <div class="grid">
             <div class="col-12">
               <div class="flex flex-column gap-2">
@@ -121,9 +121,9 @@
                   id="name"
                   formControlName="name"
                   placeholder="Your name"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contactForm.get('name')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('name')?.errors}"
                 >
-                @if (submitted && contactForm.get('name')?.errors?.['required']) {
+                @if (submitted && contact.contactForm.get('name')?.errors?.['required']) {
                   <small class="p-error">Name is required</small>
                 }
               </div>
@@ -137,12 +137,12 @@
                   id="email"
                   formControlName="email"
                   placeholder="your@email.com"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contactForm.get('email')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('email')?.errors}"
                 >
-                @if (submitted && contactForm.get('email')?.errors?.['required']) {
+                @if (submitted && contact.contactForm.get('email')?.errors?.['required']) {
                   <small class="p-error">Email is required</small>
                 }
-                @if (submitted && contactForm.get('email')?.errors?.['email']) {
+                @if (submitted && contact.contactForm.get('email')?.errors?.['email']) {
                   <small class="p-error">Please enter a valid email address</small>
                 }
               </div>
@@ -156,7 +156,7 @@
                   id="phone"
                   formControlName="phone"
                   placeholder="+371 23333333"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contactForm.get('phone')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('phone')?.errors}"
                 >
               </div>
             </div>
@@ -169,9 +169,9 @@
                   formControlName="wheredidyouhear"
                   [options]="sourcesOptions"
                   placeholder="Select source"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contactForm.get('source')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('source')?.errors}"
                 ></p-select>
-                @if (submitted && contactForm.get('source')?.errors?.['required']) {
+                @if (submitted && contact.contactForm.get('source')?.errors?.['required']) {
                   <small class="p-error">Please select a source</small>
                 }
               </div>
@@ -187,9 +187,9 @@
                   [rows]="5"
                   [autoResize]="true"
                   placeholder="Your message"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contactForm.get('message')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('message')?.errors}"
                 ></textarea>
-                @if (submitted && contactForm.get('message')?.errors?.['required']) {
+                @if (submitted && contact.contactForm.get('message')?.errors?.['required']) {
                   <small class="p-error">Message is required</small>
                 }
               </div>

@@ -1,9 +1,16 @@
 <header class="header-container">
-  <img
-    (click)="scrollTop()"
-    src="assets/pitlane.svg"
-    alt="Pitlane Logo"
-    class="logo"
-  />
+  <div class="flex gap-5 align-items-center">
+    <img
+      (click)="scrollTop()"
+      src="assets/pitlane.svg"
+      alt="Pitlane Logo"
+      class="logo"
+    />
+    <div class="flex gap-2 align-items-center">
+      @for (link of links(); track link.label) {
+        <a [href]="link.href" class="text-white no-underline block">{{link.label}}</a>
+      }
+    </div>
+  </div>
   <app-primary-btn [label]="buttonText()" (click)="scroll('#contact')" />
 </header>

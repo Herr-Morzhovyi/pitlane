@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, inject} from '@angular/core';
 import { Contact } from './contact/contact';
 import { LoadingService } from './services/loading.service';
 import { Preloader } from './preloader/preloader';
@@ -9,6 +9,7 @@ import { Gallery } from './gallery/gallery';
 import { Footer } from './footer/footer';
 import { GalleryService } from './services/gallery.service';
 import {Pricing} from './pricing/pricing';
+import {BreakpointService} from './services/breakpoint.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class App {
   #loadingService = inject(LoadingService);
   #wp = inject(WordpressService);
   #gallery = inject(GalleryService);
+  #breakpointService = inject(BreakpointService);
 
   isLoading = this.#loadingService.isLoading;
 
@@ -33,14 +35,24 @@ export class App {
       },
       error: (e) => console.error(e),
     });
-
-    this.#wp.getGallery().subscribe({
-      next: (data: any) => {
-        this.#gallery.rawImages.set(data.images);
-        this.#gallery.currentPage.set(data.current_page);
-        this.#gallery.pagesCount.set(data.total_pages);
-      },
+    effect(() => {
+      this.#breakpointService.isDesktop();
+      this.#breakpointService.isTablet();
+      this.#breakpointService.isMobile();
+      this.#wp.getGallery(1, this.#breakpointService.initialGalleryItems()).subscribe({
+        next: (data: any) => {
+          this.#gallery.rawImages.set(data.images);
+          this.#gallery.currentPage.set(data.current_page);
+          this.#gallery.pagesCount.set(data.total_pages);
+          console.log(data);
+        },
+      });
     });
+
+
+    console.log(this.#breakpointService.isDesktop());
+    console.log(this.#breakpointService.isTablet());
+    console.log(this.#breakpointService.isMobile());
   }
 
   scroll(el: string) {

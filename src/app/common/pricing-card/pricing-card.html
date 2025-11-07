@@ -1,13 +1,10 @@
 <div class="card">
-  @if (plan().badge) {
-    <div class="badge">{{plan().badge}}</div>
-  }
   <div class="title">{{plan().title}}</div>
   <div class="price">
     <span class="amount">${{plan().price | number:'1.2-2'}}</span>
   </div>
   <p class="description">{{plan().description}}</p>
-  <app-primary-btn [label]="'Sign Up with ' + plan().title" />
+  <app-primary-btn (click)="autofillContactForm(plan().title)" [label]="'Sign Up with ' + plan().title" />
   <div class="feature-title">
     <p-divider />
     <span>FEATURES</span>
@@ -17,7 +14,7 @@
     @for (feature of plan().features; track feature) {
       <li>
         <i class="pi pi-check"></i>
-        <span>{{feature}}</span>
+        <span>{{feature?.feature}}</span>
       </li>
     }
   </ul>

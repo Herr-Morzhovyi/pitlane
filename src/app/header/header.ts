@@ -1,4 +1,4 @@
-import { Component, signal, EventEmitter, Output } from '@angular/core';
+import {Component, signal, EventEmitter, Output, output} from '@angular/core';
 import { PrimaryBtn } from '../common/primary-btn/primary-btn';
 
 @Component({
@@ -8,8 +8,27 @@ import { PrimaryBtn } from '../common/primary-btn/primary-btn';
   styleUrl: './header.scss',
 })
 export class Header {
-  @Output() onClick = new EventEmitter<string>();
+  onClick = output<string>();
   buttonText = signal('Contact us!');
+
+  links = signal([
+    {
+      label: 'Home',
+      href: '#hero'
+    },
+    {
+      label: 'Gallery',
+      href: '#gallery'
+    },
+    {
+      label: 'Pricing',
+      href: '#pricing'
+    },
+    {
+      label: 'Contact',
+      href: '#contact'
+    }
+  ]);
 
   scroll(el: string) {
     this.onClick.emit(el);

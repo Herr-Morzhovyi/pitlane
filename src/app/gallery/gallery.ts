@@ -37,7 +37,7 @@ export class Gallery {
 
   toggleShowMore(): void {
     if (this.allShown()) {
-      this.#gallery.rawImages.update((images) => images.slice(0, 10));
+      this.#gallery.rawImages.update((images) => images.slice(0, this.#breakPoint.initialGalleryItems()));
       this.#gallery.currentPage.set(1);
       return;
     }
