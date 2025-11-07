@@ -1,17 +1,44 @@
 .container {
   max-width: 1280px;
+  padding: 40px 40px 100px 40px;
   margin: 0 auto;
   h2 {
     text-align: center;
     margin: 40px auto 16px auto;
+    font-size: 32px;
   }
   p {
     text-align: center;
+    color: #a7a7a7;
   }
   .plans-grid {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: stretch;
+    justify-content: center;
     margin-top: 60px;
+    position: relative;
+    z-index: 2;
+    > app-pricing-card {
+      min-width: 300px;
+      max-width: 400px;
+    }
   }
+}
+.bg-1-gradient {
+  background-image: radial-gradient(
+      50% 50% at 50% 50%,
+      #383d58 0,
+      rgba(56, 61, 88, 0) 100%
+  );
+  transform: translateY(-50%);
+  opacity: 0.4;
+  width: 900px;
+  height: 600px;
+  z-index: 1;
+  top: 30%;
+  right: -450px;
+  position: absolute;
+  pointer-events: none;
 }
