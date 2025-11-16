@@ -1,16 +1,49 @@
 <header class="header-container">
-  <div class="flex gap-5 align-items-center">
-    <img
-      (click)="scrollTop()"
-      src="assets/pitlane.svg"
-      alt="Pitlane Logo"
-      class="logo"
-    />
-    <div class="flex gap-2 align-items-center">
-      @for (link of links(); track link.label) {
-        <a [href]="link.href" class="text-white no-underline block">{{link.label}}</a>
-      }
+  @if (isDesktop()) {
+    <div class="flex gap-5 align-items-center">
+      <img
+        (click)="scrollTop()"
+        src="assets/pitlane.svg"
+        alt="Pitlane Logo"
+        class="logo"
+      />
+      <div class="flex gap-2 align-items-center">
+        @for (link of links(); track link.label) {
+          <a [href]="link.href" class="text-white no-underline block">{{
+            link.label
+          }}</a>
+        }
+      </div>
     </div>
-  </div>
-  <app-primary-btn [label]="buttonText()" (click)="scroll('#contact')" />
+    <app-primary-btn [label]="buttonText()" (click)="scroll('#contact')" />
+  } @else {
+    <div class="mobile-header">
+      <img
+        (click)="scrollTop()"
+        src="assets/pitlane.svg"
+        alt="Pitlane Logo"
+        class="logo"
+      />
+      <p-drawer [(visible)]="visible" position="right">
+        <div class="sidenav">
+          @for (link of links(); track link.label) {
+            <a
+              [href]="link.href"
+              class="text-white no-underline block text-2xl"
+              (click)="toggleNavBar()"
+              >{{ link.label }}</a
+            >
+          }
+          <app-primary-btn
+            class="text-2xl"
+            [label]="buttonText()"
+            (click)="scroll('#contact')"
+          />
+        </div>
+      </p-drawer>
+      <button class="nav-button" (click)="toggleNavBar()">
+        <i class="pi pi-bars" style="font-size: 2rem"></i>
+      </button>
+    </div>
+  }
 </header>

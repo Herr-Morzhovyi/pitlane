@@ -12,3 +12,28 @@
   width: auto;
   cursor: pointer;
 }
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-button {
+  background-color: black;
+  padding: 0;
+  border: none;
+  background: none;
+}
