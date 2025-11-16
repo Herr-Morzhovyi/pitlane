@@ -1,15 +1,16 @@
 import {ChangeDetectionStrategy, Component, effect, inject} from '@angular/core';
-import { Contact } from './contact/contact';
-import { LoadingService } from './services/loading.service';
-import { Preloader } from './preloader/preloader';
-import { WordpressService } from './services/wordpress.service';
-import { Hero } from './hero/hero';
-import { Header } from './header/header';
-import { Gallery } from './gallery/gallery';
-import { Footer } from './footer/footer';
-import { GalleryService } from './services/gallery.service';
+import {Contact} from './contact/contact';
+import {LoadingService} from './services/loading.service';
+import {Preloader} from './preloader/preloader';
+import {WordpressService} from './services/wordpress.service';
+import {Hero} from './hero/hero';
+import {Header} from './header/header';
+import {Gallery} from './gallery/gallery';
+import {Footer} from './footer/footer';
+import {GalleryService} from './services/gallery.service';
 import {Pricing} from './pricing/pricing';
 import {BreakpointService} from './services/breakpoint.service';
+import {ContactService} from './services/contact.service';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class App {
   #wp = inject(WordpressService);
   #gallery = inject(GalleryService);
   #breakpointService = inject(BreakpointService);
+  #contact = inject(ContactService);
 
   isLoading = this.#loadingService.isLoading;
 
@@ -35,6 +37,9 @@ export class App {
       },
       error: (e) => console.error(e),
     });
+    this.#contact.getContactFormRefill().subscribe(data => {
+      this.#contact.unitTag.set(data['_wpcf7_unit_tag']);
+    })
     effect(() => {
       this.#breakpointService.isDesktop();
       this.#breakpointService.isTablet();

@@ -119,11 +119,11 @@
                 <input
                   pInputText
                   id="name"
-                  formControlName="name"
+                  formControlName="names"
                   placeholder="Your name"
-                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('name')?.errors}"
+                  [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('names')?.errors}"
                 >
-                @if (submitted && contact.contactForm.get('name')?.errors?.['required']) {
+                @if (submitted && contact.contactForm.get('names')?.errors?.['required']) {
                   <small class="p-error">Name is required</small>
                 }
               </div>

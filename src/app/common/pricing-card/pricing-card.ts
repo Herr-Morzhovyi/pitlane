@@ -1,4 +1,4 @@
-import {Component, inject, input, InputSignal, signal, WritableSignal} from '@angular/core';
+import {Component, inject, input, InputSignal} from '@angular/core';
 import {PrimaryBtn} from '../primary-btn/primary-btn';
 import {Divider} from 'primeng/divider';
 import {DecimalPipe} from '@angular/common';

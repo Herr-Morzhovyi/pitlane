@@ -1,7 +1,7 @@
-import { Component, computed, inject } from '@angular/core';
-import { WordpressService } from '../services/wordpress.service';
-import { stripHtml } from '../utils';
-import { PrimaryBtn } from '../common/primary-btn/primary-btn';
+import {Component, computed, inject} from '@angular/core';
+import {WordpressService} from '../services/wordpress.service';
+import {stripHtml} from '../utils';
+import {PrimaryBtn} from '../common/primary-btn/primary-btn';
 
 @Component({
   selector: 'app-hero',

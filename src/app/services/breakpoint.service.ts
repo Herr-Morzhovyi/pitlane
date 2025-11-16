@@ -1,6 +1,6 @@
-import {Injectable, inject, computed} from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {computed, inject, Injectable} from '@angular/core';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',

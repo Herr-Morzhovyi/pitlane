@@ -1,5 +1,5 @@
-import { Injectable, WritableSignal, signal, inject } from '@angular/core';
-import { WordpressService } from './wordpress.service';
+import {inject, Injectable, signal, WritableSignal} from '@angular/core';
+import {WordpressService} from './wordpress.service';
 import {BreakpointService} from './breakpoint.service';
 
 @Injectable({

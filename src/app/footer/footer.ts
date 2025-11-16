@@ -1,6 +1,6 @@
-import { Component, inject, computed } from '@angular/core';
-import { Divider } from 'primeng/divider';
-import { BreakpointService } from '../services/breakpoint.service';
+import {Component, computed, inject} from '@angular/core';
+import {Divider} from 'primeng/divider';
+import {BreakpointService} from '../services/breakpoint.service';
 
 @Component({
   selector: 'app-footer',

@@ -1,6 +1,6 @@
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ContactService {
   #http = inject(HttpClient);
   contactForm!: FormGroup;
   #contactFormID = '52';
+  unitTag = signal('');
 
   #contactFormApiEndpoint = 'https://pitlain.brigada-dev.com/wp-json/contact-form-7/v1/contact-forms/' + this.#contactFormID + '/feedback';
 
@@ -29,11 +30,18 @@ export class ContactService {
 
   createForm() {
     this.contactForm = this.#fb.group({
-      name: ['', Validators.required],
+      names: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
       wheredidyouhear: ['', Validators.required],
       message: ['', Validators.required]
     });
+  }
+
+
+  getContactFormRefill(): Observable<any> {
+    return this.#http.get(
+      'https://pitlain.brigada-dev.com/wp-json/headless-cf7/v1/form-fields/52'
+    );
   }
 }

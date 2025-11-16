@@ -1,4 +1,4 @@
-import { trigger, style, transition, animate } from '@angular/animations';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 export const fadeInScaleAnimation = trigger('fadeInScale', [
   transition(':enter', [

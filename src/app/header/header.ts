@@ -1,5 +1,5 @@
-import {Component, signal, EventEmitter, Output, output} from '@angular/core';
-import { PrimaryBtn } from '../common/primary-btn/primary-btn';
+import {Component, output, signal} from '@angular/core';
+import {PrimaryBtn} from '../common/primary-btn/primary-btn';
 
 @Component({
   selector: 'app-header',

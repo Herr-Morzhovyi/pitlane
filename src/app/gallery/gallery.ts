@@ -1,11 +1,11 @@
-import { Component, computed, inject } from '@angular/core';
-import { GalleriaModule } from 'primeng/galleria';
-import { CommonModule } from '@angular/common';
-import { PrimaryBtn } from '../common/primary-btn/primary-btn';
-import { GalleryService } from '../services/gallery.service';
-import { BreakpointService } from '../services/breakpoint.service';
-import { fadeInScaleAnimation } from '../animations/animations/animations';
-import { Carousel } from 'primeng/carousel';
+import {Component, computed, inject} from '@angular/core';
+import {GalleriaModule} from 'primeng/galleria';
+import {CommonModule} from '@angular/common';
+import {PrimaryBtn} from '../common/primary-btn/primary-btn';
+import {GalleryService} from '../services/gallery.service';
+import {BreakpointService} from '../services/breakpoint.service';
+import {fadeInScaleAnimation} from '../animations/animations/animations';
+import {Carousel} from 'primeng/carousel';
 
 @Component({
   selector: 'app-gallery',
