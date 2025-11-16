@@ -50,11 +50,17 @@ export class Contact {
     this.submitted = true;
 
     if (this.contact.contactForm.valid) {
-      const payload = this.contact.contactForm.getRawValue();
-      this.contact.send(payload).subscribe({
-        next: () => this.contact.contactForm.reset(),
-        error: (e) => console.error(e),
+      let formData: FormData = new FormData();
+
+      // Append each key-value pair from the form value to the FormData object
+      Object.keys(this.contact.contactForm.value).forEach(key => {
+        formData.append(key, this.contact.contactForm.value[key]);
       });
+
+      // formData.append('_wpcf7_unit_tag', 'wpcf7-f7-o1');
+
+      this.contact.send(formData);
+
     }
   }
 }

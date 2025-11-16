@@ -10,11 +10,15 @@ export class ContactService {
   #fb = inject(FormBuilder);
   #http = inject(HttpClient);
   contactForm!: FormGroup;
+  #contactFormID = '52';
 
-  // #url = 'http://localhost:1337/api/messages';
+  #contactFormApiEndpoint = 'https://pitlain.brigada-dev.com/wp-json/contact-form-7/v1/contact-forms/' + this.#contactFormID + '/feedback';
 
-  send(payload: any) {
-    return of(null);
+  send(formData: any): void {
+    this.#http.post(this.#contactFormApiEndpoint, formData)
+      .subscribe(response => {
+        console.log(response);
+      })
   }
 
   autoFillContactForm(planTitle: string): void {
