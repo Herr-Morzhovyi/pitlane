@@ -2,6 +2,7 @@ import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MessageService} from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ContactService {
   #fb = inject(FormBuilder);
   #http = inject(HttpClient);
+  #messageService = inject(MessageService);
   contactForm!: FormGroup;
   #contactFormID = '52';
   unitTag = signal('');
@@ -17,9 +19,27 @@ export class ContactService {
 
   send(formData: any): void {
     this.#http.post(this.#contactFormApiEndpoint, formData)
-      .subscribe(response => {
-        console.log(response);
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          this.#messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Your message has been sent successfully!',
+            life: 3000
+          });
+        },
+        error: (error) => {
+          console.error(error);
+          this.#messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Failed to send message. Please try again.',
+            life: 3000
+          });
+        }
       })
+
   }
 
   autoFillContactForm(planTitle: string): void {

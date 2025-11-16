@@ -9,3 +9,79 @@
   top: 0;
   z-index: 10;
 }
+
+:host ::ng-deep {
+  .p-toast {
+    opacity: 1;
+
+    @media screen and (max-width: 576px) {
+      width: calc(100% - 2rem);
+      max-width: calc(100vw - 2rem);
+      left: 1rem;
+      right: 1rem;
+    }
+  }
+
+  .p-toast-message {
+    backdrop-filter: none;
+
+    // Solid background with Nora theme style
+    &.p-toast-message-success {
+      background: #10b981;
+      border: 0 none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      color: #ffffff;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close-icon {
+        color: #ffffff;
+      }
+    }
+
+    &.p-toast-message-error {
+      background: #ef4444;
+      border: 0 none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      color: #ffffff;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close-icon {
+        color: #ffffff;
+      }
+    }
+
+    &.p-toast-message-info {
+      background: #3b82f6;
+      border: 0 none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      color: #ffffff;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close-icon {
+        color: #ffffff;
+      }
+    }
+
+    &.p-toast-message-warn {
+      background: #f59e0b;
+      border: 0 none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      color: #ffffff;
+
+      .p-toast-message-icon,
+      .p-toast-icon-close-icon {
+        color: #ffffff;
+      }
+    }
+
+    .p-toast-summary {
+      font-weight: 700;
+      color: inherit;
+    }
+
+    .p-toast-detail {
+      color: inherit;
+      opacity: 0.95;
+    }
+  }
+}

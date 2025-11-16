@@ -5,6 +5,7 @@ import {providePrimeNG} from 'primeng/config';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {MyPreset} from '../theme-preset';
 import {provideHttpClient} from '@angular/common/http';
+import {MessageService} from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,5 +19,6 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideAnimations(),
+    MessageService,
   ]
 };

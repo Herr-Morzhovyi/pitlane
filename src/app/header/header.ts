@@ -34,10 +34,6 @@ export class Header {
       label: 'Pricing',
       href: '#pricing',
     },
-    {
-      label: 'Contact',
-      href: '#contact',
-    },
   ]);
 
   scroll(el: string) {

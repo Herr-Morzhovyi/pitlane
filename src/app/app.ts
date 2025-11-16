@@ -11,10 +11,11 @@ import {GalleryService} from './services/gallery.service';
 import {Pricing} from './pricing/pricing';
 import {BreakpointService} from './services/breakpoint.service';
 import {ContactService} from './services/contact.service';
+import {Toast} from 'primeng/toast';
 
 @Component({
   selector: 'app-root',
-  imports: [Contact, Preloader, Hero, Header, Gallery, Footer, Pricing],
+  imports: [Contact, Preloader, Hero, Header, Gallery, Footer, Pricing, Toast],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
