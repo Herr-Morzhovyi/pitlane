@@ -20,10 +20,14 @@ section {
     .hero-texts {
       height: 100%;
       display: flex;
-      max-width: 50%;
       flex-direction: column;
       flex-grow: 1;
       justify-content: center;
+      z-index: 1;
+      padding: 0 20px 0 20px;
+      @media (min-width: 651px) {
+        max-width: 50%;
+      }
       h1 {
         margin-bottom: 8px;
         font-size: 64px;
@@ -82,4 +86,7 @@ section {
     height: 100%;
     position: absolute;
   }
+}
+.flag-image {
+  max-width: 100%;
 }
