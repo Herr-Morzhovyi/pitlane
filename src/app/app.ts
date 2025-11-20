@@ -12,6 +12,7 @@ import {Pricing} from './pricing/pricing';
 import {BreakpointService} from './services/breakpoint.service';
 import {ContactService} from './services/contact.service';
 import {Toast} from 'primeng/toast';
+import {switchMap, tap} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -30,14 +31,14 @@ export class App {
   isLoading = this.#loadingService.isLoading;
 
   constructor() {
-    this.#loadingService.hide();
-    this.#wp.getFrontPage().subscribe({
+
+    this.#wp.getFrontPageTranslations().subscribe({
       next: (data) => {
-        console.log(data);
-        this.#wp.frontPage.set(data);
-      },
-      error: (e) => console.error(e),
+        this.#wp.languages.set(data);
+        this.#loadingService.hide();
+      }
     });
+
     this.#contact.getContactFormRefill().subscribe(data => {
       this.#contact.unitTag.set(data['_wpcf7_unit_tag']);
     })

@@ -29,6 +29,9 @@ export class Gallery {
   isMobile = computed(() => {
     return this.#breakPoint.isMobile()?.matches;
   });
+  showBtn = computed(() => {
+    return this.#gallery.pagesCount() >= 1 && this.images()?.length >= this.#breakPoint.initialGalleryItems();
+  });
 
   imageClick(index: number): void {
     this.activeIndex = index;

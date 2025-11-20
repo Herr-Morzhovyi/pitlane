@@ -15,7 +15,17 @@
         }
       </div>
     </div>
-    <app-primary-btn [label]="buttonText()" (click)="scroll('#contact')" />
+    <div class="flex gap-5 align-items-center">
+      <p-select
+        [options]="languages"
+        [ngModel]="currentLang()"
+        optionLabel="name"
+        optionValue="code"
+        (onChange)="setLang($event.value)"
+        placeholder="Select language">
+      </p-select>
+      <app-primary-btn [label]="buttonText()" (click)="scroll('#contact')" />
+    </div>
   } @else {
     <div class="mobile-header">
       <img
@@ -39,6 +49,14 @@
             [label]="buttonText()"
             (click)="scroll('#contact')"
           />
+          <p-select
+            [options]="languages"
+            [ngModel]="currentLang()"
+            optionLabel="name"
+            optionValue="code"
+            (onChange)="setLang($event.value)"
+            placeholder="Select language">
+          </p-select>
         </div>
       </p-drawer>
       <button class="nav-button" (click)="toggleNavBar()">

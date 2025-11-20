@@ -3,16 +3,26 @@ import { PrimaryBtn } from '../common/primary-btn/primary-btn';
 import { DrawerModule } from 'primeng/drawer';
 import { BreakpointService } from '../services/breakpoint.service';
 import { PrimeIcons } from 'primeng/api';
+import {Select} from 'primeng/select';
+import {FormsModule} from '@angular/forms';
+import {WordpressService} from '../services/wordpress.service';
 
 @Component({
   selector: 'app-header',
-  imports: [PrimaryBtn, DrawerModule],
+  imports: [PrimaryBtn, DrawerModule, Select, FormsModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
   #breakPoint = inject(BreakpointService);
+  #wp = inject(WordpressService);
 
+  currentLang = computed(() => this.#wp.currentLanguage());
+  languages = [
+    { name: 'English', code: 'en' },
+    { name: 'Latviešu', code: 'lv' },
+    { name: 'Русский', code: 'ru' }
+  ];
   onClick = output<string>();
   buttonText = signal('Contact us!');
   isDesktop = computed(() => {
@@ -47,5 +57,9 @@ export class Header {
 
   toggleNavBar() {
     this.visible = !this.visible;
+  }
+
+  setLang(lang: string) {
+    this.#wp.setLanguage(lang);
   }
 }

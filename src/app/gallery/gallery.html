@@ -1,6 +1,6 @@
 @if (images()?.length) {
-  <section>
-    <div class="gallery-container p-4">
+  <section class="p-4">
+    <div class="gallery-container">
       @if (isMobile()) {
         <h2 class="mobile-title">Gallery</h2>
         <div class="carousel">
@@ -45,11 +45,13 @@
           </ng-template>
         </p-galleria>
 
-        <app-primary-btn
-          class="show-more-button"
-          [label]="allShown() ? 'Show less' : 'Show more'"
-          (click)="toggleShowMore()"
-        />
+        @if (showBtn()) {
+          <app-primary-btn
+            class="show-more-button"
+            [label]="allShown() ? 'Show less' : 'Show more'"
+            (click)="toggleShowMore()"
+          />
+        }
       }
     </div>
 
