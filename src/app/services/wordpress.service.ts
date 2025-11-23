@@ -35,11 +35,10 @@ export class WordpressService {
     const params = {
       page: page.toString(),
       per_page: perPage.toString(),
-      front_page_id: this.frontPageId(),
     };
 
     return this.#http.get(
-      'https://pitlain.brigada-dev.com/wp-json/theme/v1/gallery',
+      'https://pitlain.brigada-dev.com/wp-json/site/v1/gallery',
       { params }
     );
   }
@@ -52,6 +51,12 @@ export class WordpressService {
 
   setLanguage(lang: string) {
     this.currentLanguage.set(lang);
+  }
+
+  getOptionsPage() {
+    return this.#http.get(
+      'https://pitlain.brigada-dev.com/wp-json/site/v1/settings'
+    );
   }
 
 }
