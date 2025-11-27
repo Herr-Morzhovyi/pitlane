@@ -4,7 +4,7 @@
       @if (isMobile()) {
         <h2 class="mobile-title">{{ 'gallery' | translate }}</h2>
         <div class="carousel">
-          <p-carousel [value]="images()" [numVisible]="1" [numScroll]="1">
+          <p-carousel [value]="images()" [numVisible]="1" [numScroll]="1" [showIndicators]="false">
             <ng-template let-item #item>
               <img [src]="item.urls.medium" style="display: block" />
             </ng-template>
@@ -31,7 +31,8 @@
           [(activeIndex)]="activeIndex"
           [containerStyle]="{
             'max-width': '800px',
-            'max-height': '80vh'
+            'max-height': '80vh',
+            'width': '100%'
           }"
           [fullScreen]="true"
           [showItemNavigators]="true"

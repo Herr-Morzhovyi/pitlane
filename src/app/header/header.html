@@ -9,9 +9,9 @@
       />
       <div class="flex gap-2 align-items-center">
         @for (link of links(); track link.label) {
-          <a [href]="link.href" class="text-white no-underline block">{{
+          <span (click)="scroll(link.href)" class="text-white no-underline block cursor-pointer">{{
             link.label
-          }}</a>
+          }}</span>
         }
       </div>
     </div>

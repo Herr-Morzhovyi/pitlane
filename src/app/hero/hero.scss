@@ -17,6 +17,9 @@ section {
     max-width: 1280px;
     margin: 0 auto;
     margin-bottom: 180px;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
     .hero-texts {
       height: 100%;
       display: flex;
