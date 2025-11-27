@@ -6,10 +6,11 @@ import {GalleryService} from '../services/gallery.service';
 import {BreakpointService} from '../services/breakpoint.service';
 import {fadeInScaleAnimation} from '../animations/animations/animations';
 import {Carousel} from 'primeng/carousel';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-gallery',
-  imports: [GalleriaModule, CommonModule, PrimaryBtn, Carousel],
+  imports: [GalleriaModule, CommonModule, PrimaryBtn, Carousel, TranslatePipe],
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
   animations: [fadeInScaleAnimation],

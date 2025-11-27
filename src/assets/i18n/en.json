@@ -1,0 +1,18 @@
+{
+  "contact_manually": "Or, contact us manually",
+  "name": "Name *",
+  "name_required": "Name is required",
+  "email": "Email",
+  "email_required": "Email is required",
+  "email_format": "Please enter a valid email address",
+  "phone": "Phone",
+  "how_did_you_hear": "How did you hear about us? *",
+  "select_source": "Please select a source",
+  "message": "Message *",
+  "message_required": "Message is required",
+  "acceptance": "By submitting this form, you agree to our ",
+  "privacy": "Privacy policy",
+  "gallery": "Gallery",
+  "working_hours": "Working hours",
+  "address": "Address"
+}

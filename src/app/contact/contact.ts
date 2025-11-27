@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, computed, inject} from '@angular/core';
 import {Button} from 'primeng/button';
 import {Textarea} from 'primeng/textarea';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -8,6 +8,8 @@ import {InputText} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
 import {SelectModule} from 'primeng/select';
 import {ContactService} from '../services/contact.service';
+import {WordpressService} from '../services/wordpress.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 interface SourceOption {
   label: string;
@@ -24,13 +26,30 @@ interface SourceOption {
     InputText,
     InputMaskModule,
     SelectModule,
+    TranslatePipe,
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
 })
 export class Contact {
   contact = inject(ContactService);
+  #wp = inject(WordpressService);
 
+  title = computed(() => {
+    return this.#wp.frontPage()?.contact_title;
+  });
+  subtitle = computed(() => {
+    return this.#wp.frontPage()?.contact_subtitle;
+  });
+  testimonials = computed(() => {
+    return this.#wp.frontPage()?.contact_testimonials;
+  });
+  phone = computed(() => {
+    return this.#wp.options()?.phone;
+  });
+  email = computed(() => {
+    return this.#wp.options()?.email;
+  })
 
   submitted = false;
 

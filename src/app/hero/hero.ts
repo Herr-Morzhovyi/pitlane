@@ -23,4 +23,8 @@ export class Hero {
   isMobile = computed(() => {
     return this.#breakPoint.isMobile()?.matches;
   });
+
+  scroll(el: string) {
+    document.querySelector(el)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

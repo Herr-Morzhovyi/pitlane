@@ -31,6 +31,12 @@ export class App {
   isLoading = this.#loadingService.isLoading;
 
   constructor() {
+    this.#wp.initTranslations();
+
+    this.#wp.getOptionsPage().subscribe((optionsPage) => {
+      this.#wp.options.set(optionsPage);
+      console.log(optionsPage)
+    })
 
     this.#wp.getFrontPageTranslations().subscribe({
       next: (data) => {
@@ -60,6 +66,8 @@ export class App {
     console.log(this.#breakpointService.isDesktop());
     console.log(this.#breakpointService.isTablet());
     console.log(this.#breakpointService.isMobile());
+
+    this.#wp.getPrivacyPolicy();
   }
 
   scroll(el: string) {

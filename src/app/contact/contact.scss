@@ -1,5 +1,7 @@
 .section-container {
   max-width: 1280px;
+  padding: 174px 0;
+  position: relative;
   @media only screen and (max-width: 991px) {
     padding: 80px 0;
   }
@@ -9,14 +11,9 @@
   @media only screen and (max-width: 575px) {
     padding: 40px 0;
   }
-  padding: 174px 0;
-  position: relative;
 }
 
 .contact-form-wrapper {
-  @media only screen and (max-width: 767px) {
-    padding: 32px 12px 12px 12px;
-  }
   padding: 88px 32px 32px 32px;
   background-image: radial-gradient(
       82.95% 35.21% at 77.88% 98.92%,
@@ -31,6 +28,9 @@
   background-color: rgb(11 12 14);
   position: relative;
   z-index: 1;
+  @media only screen and (max-width: 767px) {
+    padding: 32px 12px 12px 12px;
+  }
   label {
     font-size: 13px;
   }

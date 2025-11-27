@@ -28,50 +28,34 @@
     </span>
     <!-- Left Column -->
     <div class="flex-1 xl:p-6 lg:p-4 md:p-3 sm:p-2">
-      <h2 class="text-6xl font-bold mb-1 text-white">Contact us</h2>
+      <h2 class="text-6xl font-bold mb-1 text-white">{{ title() }}</h2>
       <p class="text-white line-height-3 mb-6 text-2xl">
-        We’re here to answer your questions.
+        {{ subtitle() }}
       </p>
 
       <div class="flex flex-column gap-4 mb-5">
-        <div class="flex gap-3">
-          <div class="flex-1">
-            <svg width="44" height="44">
-              <use href="assets/icon.svg#icon"></use>
-            </svg>
-          </div>
+        @for (testimonial of testimonials(); track testimonial) {
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <svg width="44" height="44">
+                <use href="assets/icon.svg#icon"></use>
+              </svg>
+            </div>
 
-          <span class="text-white"><strong>Empower developers with reliable</strong>, well-designed SDKs that integrate seamlessly into your platform, inspiring them to build amazing solutions.</span>
-        </div>
-        <div class="flex gap-3">
-          <div class="flex-1">
-            <svg width="44" height="44">
-              <use href="assets/icon.svg#icon"></use>
-            </svg>
+            <span class="text-white">{{ testimonial.testimonial }}</span>
           </div>
-
-          <span class="text-white"><strong>Empower developers with reliable</strong>, well-designed SDKs that integrate seamlessly into your platform, inspiring them to build amazing solutions.</span>
-        </div>
-        <div class="flex gap-3">
-          <div class="flex-1">
-            <svg width="44" height="44">
-              <use href="assets/icon.svg#icon"></use>
-            </svg>
-          </div>
-
-          <span class="text-white"><strong>Empower developers with reliable</strong>, well-designed SDKs that integrate seamlessly into your platform, inspiring them to build amazing solutions.</span>
-        </div>
+        }
       </div>
       <p-divider></p-divider>
-      <h3 class="mt-5 mb-3">Or, contact us manually</h3>
+      <h3 class="mt-5 mb-3">{{ 'contact_manually' | translate }}</h3>
       <div class="flex flex-column gap-2">
         <div class="flex gap-1 align-items-center">
           <i class="pi pi-phone text-primary"></i>
-          <a class="text-primary no-underline" href="tel:233333333">23333333</a>
+          <a class="text-primary no-underline" [href]="'tel:' + phone()">{{ phone() }}</a>
         </div>
         <div class="flex gap-1 align-items-center">
           <i class="pi pi-envelope text-primary"></i>
-          <a class="text-primary no-underline" href="mailto:aaa@aaa.lv">aaa&#64;aaa.lv</a>
+          <a class="text-primary no-underline" [href]="'mailto:' + email()">{{ email() }}</a>
         </div>
       </div>
     </div>
@@ -115,7 +99,7 @@
           <div class="grid">
             <div class="col-12">
               <div class="flex flex-column gap-2">
-                <label htmlFor="name" class="font-medium text-white">Name *</label>
+                <label for="name" class="font-medium text-white">{{ 'name' | translate }}</label>
                 <input
                   pInputText
                   id="name"
@@ -124,14 +108,14 @@
                   [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('names')?.errors}"
                 >
                 @if (submitted && contact.contactForm.get('names')?.errors?.['required']) {
-                  <small class="p-error">Name is required</small>
+                  <small class="p-error">{{ 'name_required' | translate  }}</small>
                 }
               </div>
             </div>
 
             <div class="col-12">
               <div class="flex flex-column gap-2">
-                <label htmlFor="email" class="font-medium text-white">Email *</label>
+                <label for="email" class="font-medium text-white">{{ 'email' | translate }} *</label>
                 <input
                   pInputText
                   id="email"
@@ -140,17 +124,17 @@
                   [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('email')?.errors}"
                 >
                 @if (submitted && contact.contactForm.get('email')?.errors?.['required']) {
-                  <small class="p-error">Email is required</small>
+                  <small class="p-error">{{ 'email_required' | translate }}</small>
                 }
                 @if (submitted && contact.contactForm.get('email')?.errors?.['email']) {
-                  <small class="p-error">Please enter a valid email address</small>
+                  <small class="p-error">{{ 'email_format' | translate }}</small>
                 }
               </div>
             </div>
 
             <div class="col-12">
               <div class="flex flex-column gap-2">
-                <label for="phone" class="font-medium text-white">Phone</label>
+                <label for="phone" class="font-medium text-white">{{ 'phone' | translate }}</label>
                 <input
                   pInputText
                   id="phone"
@@ -163,7 +147,7 @@
 
             <div class="col-12">
               <div class="flex flex-column gap-2">
-                <label for="source" class="font-medium text-white">How did you hear about us? *</label>
+                <label class="font-medium text-white">{{ 'how_did_you_hear' | translate }}</label>
                 <p-select
                   id="source"
                   formControlName="wheredidyouhear"
@@ -172,14 +156,14 @@
                   [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('source')?.errors}"
                 ></p-select>
                 @if (submitted && contact.contactForm.get('source')?.errors?.['required']) {
-                  <small class="p-error">Please select a source</small>
+                  <small class="p-error">{{ 'select_source' | translate }}</small>
                 }
               </div>
             </div>
 
             <div class="col-12">
               <div class="flex flex-column gap-2">
-                <label htmlFor="message" class="font-medium text-white">Message *</label>
+                <label for="message" class="font-medium text-white">{{ 'message' | translate }}</label>
                 <textarea
                   pInputTextarea
                   id="message"
@@ -190,23 +174,25 @@
                   [ngClass]="{'ng-invalid ng-dirty': submitted && contact.contactForm.get('message')?.errors}"
                 ></textarea>
                 @if (submitted && contact.contactForm.get('message')?.errors?.['required']) {
-                  <small class="p-error">Message is required</small>
+                  <small class="p-error">{{ 'message_required' | translate }}</small>
                 }
               </div>
             </div>
           </div>
 
           <div class="flex flex-column md:flex-row align-items-center justify-content-between mt-4 gap-2">
-            <span class="text-white text-sm">
-              By submitting this form, you agree to our
-              <a href="#" class="text-primary no-underline hover:underline">Privacy Policy</a>
-            </span>
+            <div>
+              <span class="text-white text-sm">
+                {{ 'acceptance' | translate }}
+              </span>
+              <a href="#" class="text-primary text-sm no-underline hover:underline">{{ 'privacy' | translate }}</a>
+            </div>
             <p-button
               type="submit"
               label="Send Message"
               icon="pi pi-send"
               [style]="{'width': '200px'}"
-            ></p-button>
+            />
           </div>
         </form>
       </div>

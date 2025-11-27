@@ -2,7 +2,7 @@
   <section class="p-4">
     <div class="gallery-container">
       @if (isMobile()) {
-        <h2 class="mobile-title">Gallery</h2>
+        <h2 class="mobile-title">{{ 'gallery' | translate }}</h2>
         <div class="carousel">
           <p-carousel [value]="images()" [numVisible]="1" [numScroll]="1">
             <ng-template let-item #item>

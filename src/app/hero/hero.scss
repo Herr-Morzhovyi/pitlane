@@ -90,3 +90,9 @@ section {
 .flag-image {
   max-width: 100%;
 }
+
+:host ::ng-deep app-primary-btn {
+  button {
+    width: auto !important;
+  }
+}

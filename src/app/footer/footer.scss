@@ -1,53 +1,108 @@
-.footer-container {
-  width: 100%;
+.footer {
+  color: #fff;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: #444;
+  margin-bottom: 2rem;
+}
+
+/* Footer content grid */
+.footer-content {
   display: flex;
-  position: relative;
-  @media only screen and (max-width: 1536px) {
-    justify-content: space-between;
-  }
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 30px 60px 0 60px;
-  }
-  .logo-container {
-    position: absolute;
-    padding: 30px 0px 0 40px;
-  }
-  .footer-info {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 270px;
-    @media only screen and (max-width: 1536px) {
-      justify-content: end;
-    }
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Footer sections */
+.footer-logo img {
+  width: 230px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto; /* center on mobile */
+  @media screen and (max-width: 991px) {
+    width: 170px;
+    height: 90px;
   }
 }
 
-.mobile-footer-container {
-  width: 100%;
+.footer-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  @media only screen and (max-width: 1536px) {
-    justify-content: end;
+  gap: 0.5rem;
+}
+
+/* Contact info 2-column alignment */
+.contact-info .info-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-info .label {
+  //font-weight: bold;
+  min-width: 60px; /* all labels start at same point */
+}
+
+.contact-info .value{
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Working hours label */
+.working-hours .hours-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Social links */
+.social-links a {
+  display: inline-block;
+  margin-right: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+  .footer-logo {
+    flex: 1;
+    text-align: left;
   }
-  .logo-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+  .contact-info, .working-hours, .social-links {
+    flex: 1;
   }
-  .footer-info {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 50px;
+
+  /* optional vertical dividers */
+  .footer-section:not(:first-child) {
+    border-left: 1px solid #444;
+    padding-left: 1.5rem;
+  }
+
+  .footer-logo {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .social-links a {
+    display: block;
+    margin: 0.25rem 0;
   }
 }
