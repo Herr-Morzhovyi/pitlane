@@ -20,8 +20,8 @@ export class Hero {
   buttonText = computed(() => this.#wp.frontPage()?.hero_button_text);
   buttonLink = computed(() => this.#wp.frontPage()?.hero_button_url);
   featuredImageUrl = computed(() => this.#wp.frontPage()?.featured_image_url);
-  isMobile = computed(() => {
-    return this.#breakPoint.isMobile()?.matches;
+  isTablet = computed(() => {
+    return this.#breakPoint.isTablet()?.matches;
   });
 
   scroll(el: string) {

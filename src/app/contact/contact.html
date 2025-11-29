@@ -187,12 +187,13 @@
               </span>
               <a href="#" class="text-primary text-sm no-underline hover:underline">{{ 'privacy' | translate }}</a>
             </div>
-            <p-button
-              type="submit"
-              label="Send Message"
-              icon="pi pi-send"
-              [style]="{'width': '200px'}"
-            />
+            <app-primary-btn type="submit" [label]="'contact_send' | translate" [width]="'200px'" icon="pi pi-send" />
+<!--            <p-button-->
+<!--              type="submit"-->
+<!--              label="Send Message"-->
+<!--              icon="pi pi-send"-->
+<!--              [style]="{'width': '200px'}"-->
+<!--            />-->
           </div>
         </form>
       </div>

@@ -6,7 +6,7 @@ import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
-  imports: [Divider, TranslatePipe],
+  imports: [TranslatePipe],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
   standalone: true,
@@ -31,8 +31,5 @@ export class Footer {
     return this.#wp.options()?.workingHours;
   });
 
-  isDesktop = computed(() => {
-    return this.#breakPoint.isDesktop()?.matches;
-  });
   protected readonly encodeURIComponent = encodeURIComponent;
 }

@@ -10,6 +10,7 @@ import {SelectModule} from 'primeng/select';
 import {ContactService} from '../services/contact.service';
 import {WordpressService} from '../services/wordpress.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {PrimaryBtn} from '../common/primary-btn/primary-btn';
 
 interface SourceOption {
   label: string;
@@ -27,6 +28,7 @@ interface SourceOption {
     InputMaskModule,
     SelectModule,
     TranslatePipe,
+    PrimaryBtn,
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'

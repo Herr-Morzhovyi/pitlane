@@ -3,6 +3,7 @@ import {PrimaryBtn} from '../primary-btn/primary-btn';
 import {Divider} from 'primeng/divider';
 import {DecimalPipe} from '@angular/common';
 import {ContactService} from '../../services/contact.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 export interface PricingPlan {
   title: string;
@@ -16,7 +17,8 @@ export interface PricingPlan {
   imports: [
     PrimaryBtn,
     Divider,
-    DecimalPipe
+    DecimalPipe,
+    TranslatePipe
   ],
   templateUrl: './pricing-card.html',
   styleUrl: './pricing-card.scss'

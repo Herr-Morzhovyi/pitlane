@@ -7,4 +7,6 @@ import {Component, input} from '@angular/core';
 })
 export class PrimaryBtn {
   label = input.required<string>();
+  width = input('');
+  icon = input('');
 }

@@ -28,7 +28,7 @@ section {
       justify-content: center;
       z-index: 1;
       padding: 0 20px 0 20px;
-      @media (min-width: 651px) {
+      @media (min-width: 767px) {
         max-width: 50%;
       }
       h1 {
@@ -37,6 +37,12 @@ section {
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+        @media screen and (max-width: 767px) {
+          font-size: 48px;
+        }
+        @media screen and (max-width: 576px) {
+          font-size: 32px;
+        }
       }
       h2 {
         margin-bottom: 32px;
@@ -44,6 +50,12 @@ section {
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+        @media screen and (max-width: 767px) {
+          font-size: 24px;
+        }
+        @media screen and (max-width: 576px) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -54,25 +66,33 @@ section {
   top: 0;
   height: 500px;
   width: 50vw;
+  @media screen and (max-width: 767px) {
+    width: 75vw;
+  }
+  .hero-decoration-images img {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+  }
   img.featured-image {
     position: absolute;
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
-  img:not(.featured-image):nth-child(3) {
+  img:not(.featured-image):nth-child(2) {
     position: absolute;
     top: 408px;
     left: 17px;
     width: 350px;
   }
-  img:not(.featured-image):nth-child(2) {
+  img:not(.featured-image):nth-child(1) {
     position: absolute;
     top: 250px;
     left: -46px;
     width: 300px;
   }
-  img:not(.featured-image):nth-child(4) {
+  img:not(.featured-image):nth-child(3) {
     position: absolute;
     top: 0;
     left: -22px;

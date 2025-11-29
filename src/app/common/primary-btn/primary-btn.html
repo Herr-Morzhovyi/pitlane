@@ -1,1 +1,6 @@
-<button class="cursor-pointer">{{label()}}</button>
+<button [style.width]="width() ?? ''" class="cursor-pointer">
+  @if (icon()) {
+    <i [class]="icon()"></i>
+  }
+  <span>{{label()}}</span>
+</button>

@@ -4,10 +4,10 @@
     <span class="amount">${{plan().price | number:'1.2-2'}}</span>
   </div>
   <p class="description">{{plan().description}}</p>
-  <app-primary-btn (click)="autofillContactForm(plan().title)" [label]="'Sign Up with ' + plan().title" />
+  <app-primary-btn (click)="autofillContactForm(plan().title)" [label]="('sign_up_with' | translate) + plan().title" />
   <div class="feature-title">
     <p-divider />
-    <span>FEATURES</span>
+    <span>{{ 'features' | translate  }}</span>
     <p-divider />
   </div>
   <ul class="features-list">
