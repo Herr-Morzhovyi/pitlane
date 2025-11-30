@@ -54,7 +54,7 @@ export class WordpressService {
 
   getGallery(page: number = 1, perPage: number) {
     const params = {
-      page: page.toString(),
+      page: page,
       per_page: perPage.toString(),
     };
 

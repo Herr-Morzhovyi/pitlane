@@ -15,11 +15,11 @@ export class GalleryService {
 
   showMore() {
     if (this.currentPage() >= this.pagesCount()) return;
-
+    console.log(this.currentPage());
     this.#wp.getGallery(this.currentPage() + 1, this.#breakpointService.initialGalleryItems()).subscribe({
       next: (data: any) => {
-        this.rawImages.set([...this.rawImages(), ...data.images]);
-        this.currentPage.set(data.current_page);
+        this.rawImages.set([...this.rawImages(), ...data.gallery]);
+        this.currentPage.set(data.page);
         this.pagesCount.set(data.total_pages);
       },
     });

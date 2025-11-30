@@ -55,7 +55,7 @@ export class App {
       this.#wp.getGallery(1, this.#breakpointService.initialGalleryItems()).subscribe({
         next: (data: any) => {
           this.#gallery.rawImages.set(data.gallery);
-          this.#gallery.currentPage.set(data.current_page);
+          this.#gallery.currentPage.set(data.page);
           this.#gallery.pagesCount.set(data.total_pages);
           console.log(data);
         },

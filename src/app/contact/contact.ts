@@ -1,5 +1,4 @@
 import {Component, computed, inject} from '@angular/core';
-import {Button} from 'primeng/button';
 import {Textarea} from 'primeng/textarea';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
@@ -19,7 +18,6 @@ interface SourceOption {
 @Component({
   selector: 'app-contact',
   imports: [
-    Button,
     Textarea,
     ReactiveFormsModule,
     NgClass,
