@@ -6,7 +6,7 @@
         <div class="carousel">
           <p-carousel [value]="images()" [numVisible]="1" [numScroll]="1" [showIndicators]="false">
             <ng-template let-item #item>
-              <img [src]="item.urls.medium" style="display: block" />
+              <img ngSrc="item.urls.medium" class="display-block" [alt]="item.title"/>
             </ng-template>
           </p-carousel>
         </div>

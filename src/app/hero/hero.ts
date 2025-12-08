@@ -2,8 +2,6 @@ import { Component, computed, inject } from '@angular/core';
 import { WordpressService } from '../services/wordpress.service';
 import { stripHtml } from '../utils';
 import { PrimaryBtn } from '../common/primary-btn/primary-btn';
-import { BreakpointService } from '../services/breakpoint.service';
-import { PrimeIcons } from 'primeng/api';
 
 @Component({
   selector: 'app-hero',
@@ -13,18 +11,13 @@ import { PrimeIcons } from 'primeng/api';
 })
 export class Hero {
   #wp = inject(WordpressService);
-  #breakPoint = inject(BreakpointService);
 
   title = computed(() => this.#wp.frontPage()?.title?.rendered);
   subtitle = computed(() => stripHtml(this.#wp.frontPage()?.content?.rendered));
   buttonText = computed(() => this.#wp.frontPage()?.hero_button_text);
-  buttonLink = computed(() => this.#wp.frontPage()?.hero_button_url);
   featuredImageUrl = computed(() => this.#wp.frontPage()?.featured_image_url);
-  isTablet = computed(() => {
-    return this.#breakPoint.isTablet()?.matches;
-  });
 
-  scroll(el: string) {
+  scroll(el: string): void {
     document.querySelector(el)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

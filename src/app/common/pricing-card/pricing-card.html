@@ -11,7 +11,7 @@
     <p-divider />
   </div>
   <ul class="features-list">
-    @for (feature of plan().features; track feature) {
+    @for (feature of plan().features; track $index) {
       <li>
         <i class="pi pi-check"></i>
         <span>{{feature?.feature}}</span>

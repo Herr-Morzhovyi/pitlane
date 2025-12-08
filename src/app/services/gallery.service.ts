@@ -13,9 +13,8 @@ export class GalleryService {
   pagesCount: WritableSignal<number> = signal(0);
   currentPage: WritableSignal<number> = signal(1);
 
-  showMore() {
+  showMore(): void {
     if (this.currentPage() >= this.pagesCount()) return;
-    console.log(this.currentPage());
     this.#wp.getGallery(this.currentPage() + 1, this.#breakpointService.initialGalleryItems()).subscribe({
       next: (data: any) => {
         this.rawImages.set([...this.rawImages(), ...data.gallery]);
