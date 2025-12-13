@@ -6,7 +6,7 @@
   "email_required": "Email is required",
   "email_format": "Please enter a valid email address",
   "phone": "Phone",
-  "how_did_you_hear": "How did you hear about us? *",
+  "how_did_you_hear": "How did you hear about us?",
   "select_source": "Please select a source",
   "message": "Message *",
   "message_required": "Message is required",
@@ -17,6 +17,8 @@
   "address": "Address",
   "features": "FEATURES",
   "sign_up_with": "Sign up with ",
-  "contact_send": "Send message"
-
+  "contact_send": "Send message",
+  "monday-friday": "Monday-Friday",
+  "sat": "Saturday",
+  "sun": "Sunday"
 }

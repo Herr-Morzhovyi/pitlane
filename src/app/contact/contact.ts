@@ -1,4 +1,4 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, computed, effect, inject} from '@angular/core';
 import {Textarea} from 'primeng/textarea';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
@@ -10,6 +10,7 @@ import {ContactService} from '../services/contact.service';
 import {WordpressService} from '../services/wordpress.service';
 import {TranslatePipe} from '@ngx-translate/core';
 import {PrimaryBtn} from '../common/primary-btn/primary-btn';
+import {Dialog} from 'primeng/dialog';
 
 interface SourceOption {
   label: string;
@@ -27,6 +28,7 @@ interface SourceOption {
     SelectModule,
     TranslatePipe,
     PrimaryBtn,
+    Dialog,
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss'
@@ -49,9 +51,13 @@ export class Contact {
   });
   email = computed(() => {
     return this.#wp.options()?.email;
+  });
+  privacyPolicyPageContent = computed(() => {
+    return this.#wp.privacyPage()?.content?.rendered;
   })
 
   submitted = false;
+  dialogVisible = false;
 
   sourcesOptions: SourceOption[] = [
     { label: 'Search Engine', value: 'search' },
@@ -63,6 +69,9 @@ export class Contact {
 
   constructor() {
     this.contact.createForm();
+    effect(() => {
+      console.log(this.privacyPolicyPageContent())
+    });
   }
 
   onSubmit() {
@@ -90,5 +99,9 @@ export class Contact {
       this.contact.send(formData);
 
     }
+  }
+
+  showDialog() {
+    this.dialogVisible = true;
   }
 }

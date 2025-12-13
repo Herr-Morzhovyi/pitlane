@@ -185,7 +185,7 @@
               <span class="text-white text-sm">
                 {{ 'acceptance' | translate }}
               </span>
-              <a href="#" class="text-primary text-sm no-underline hover:underline">{{ 'privacy' | translate }}</a>
+              <span (click)="showDialog()" class="text-primary text-sm no-underline hover:underline cursor-pointer">{{ 'privacy' | translate }}</span>
             </div>
             <app-primary-btn type="submit" [label]="'contact_send' | translate" [width]="'200px'" icon="pi pi-send" />
           </div>
@@ -193,4 +193,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="card flex justify-center dialog-container">
+  <p-dialog header="Privacy policy" [modal]="true" [(visible)]="dialogVisible" [style]="{ width: '50rem' }" [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+    <p [innerHTML]="privacyPolicyPageContent()"></p>
+  </p-dialog>
 </div>

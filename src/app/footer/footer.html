@@ -27,20 +27,35 @@
       <!-- Working Hours -->
       <section class="footer-section working-hours">
         <div class="hours-label text-primary">{{ 'working_hours' | translate }}</div>
-        <div>9:00 - 18:00 Pn-Pt</div>
-        <div>9:00 - 16:00 Sb</div>
-        <div>---- Sv</div>
+        @if (workingHours()?.mon_fri) {
+          <div>
+            <span>{{ 'monday-friday' | translate }}: </span>
+            <span>{{ workingHours()?.mon_fri?.hours }}</span>
+          </div>
+        }
+        @if (workingHours()?.sat) {
+          <div>
+            <span>{{ 'sat' | translate }}: </span>
+            <span>{{ workingHours()?.sat?.hours }}</span>
+          </div>
+        }
+        @if (workingHours()?.sun) {
+          <div>
+            <span>{{ 'sun' | translate }}: </span>
+            <span>{{ workingHours()?.sun?.hours }}</span>
+          </div>
+        }
       </section>
-
+<!-- Todo: Add social links when available -->
       <!-- Social Links -->
-      <section class="footer-section social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">VK</a>
-        <a href="#">Telegram</a>
-        <a href="#">Whatsapp</a>
-        <a href="#">Youtube</a>
-      </section>
+<!--      <section class="footer-section social-links">-->
+<!--        <a href="#">Facebook</a>-->
+<!--        <a href="#">Instagram</a>-->
+<!--        <a href="#">VK</a>-->
+<!--        <a href="#">Telegram</a>-->
+<!--        <a href="#">Whatsapp</a>-->
+<!--        <a href="#">Youtube</a>-->
+<!--      </section>-->
     </div>
   </div>
 </footer>

@@ -9,8 +9,8 @@ export class BreakpointService {
   #breakPointObserver = inject(BreakpointObserver);
 
   readonly mobileBreakPoint: string = '(max-width: 576px)';
-  readonly tabletBreakpoint: string = '(min-width: 576px) and (max-width: 991px)';
-  readonly desktopBreakPoint: string = '(min-width: 992px)';
+  readonly tabletBreakpoint: string = '(min-width: 576px) and (max-width: 1200px)';
+  readonly desktopBreakPoint: string = '(min-width: 1201px)';
 
   isMobile = toSignal(this.#breakPointObserver.observe(this.mobileBreakPoint));
   isDesktop = toSignal(

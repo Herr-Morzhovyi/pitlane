@@ -1,8 +1,20 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, computed, inject, Signal} from '@angular/core';
 import {Divider} from 'primeng/divider';
 import {BreakpointService} from '../services/breakpoint.service';
 import {WordpressService} from '../services/wordpress.service';
 import {TranslatePipe} from '@ngx-translate/core';
+
+interface WorkingHours {
+  mon_fri?: {
+    hours: string;
+  } | undefined;
+  sat?: {
+    hours: string;
+  } | undefined;
+  sun?: {
+    hours: string;
+  } | undefined;
+}
 
 @Component({
   selector: 'app-footer',
@@ -27,8 +39,8 @@ export class Footer {
   email = computed(() => {
     return this.#wp.options()?.email;
   });
-  workingHours = computed(() => {
-    return this.#wp.options()?.workingHours;
+  workingHours: Signal<WorkingHours | undefined> = computed(() => {
+    return this.#wp.options()?.working_hours;
   });
 
   protected readonly encodeURIComponent = encodeURIComponent;

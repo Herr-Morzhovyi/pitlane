@@ -53,7 +53,7 @@ export class ContactService {
       names: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
-      wheredidyouhear: ['', Validators.required],
+      wheredidyouhear: [''],
       message: ['', Validators.required]
     });
   }
