@@ -1,6 +1,4 @@
 import {Component, computed, inject, Signal} from '@angular/core';
-import {Divider} from 'primeng/divider';
-import {BreakpointService} from '../services/breakpoint.service';
 import {WordpressService} from '../services/wordpress.service';
 import {TranslatePipe} from '@ngx-translate/core';
 
@@ -24,15 +22,11 @@ interface WorkingHours {
   standalone: true,
 })
 export class Footer {
-  #breakPoint = inject(BreakpointService);
   #wp = inject(WordpressService);
 
   address = computed(() => {
     return this.#wp.options()?.address;
   });
-  addressLink = computed(() => {
-    return this.#wp.options()?.address_link;
-  })
   phone = computed(() => {
     return this.#wp.options()?.phone;
   });

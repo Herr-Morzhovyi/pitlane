@@ -1,18 +1,13 @@
-import {
-  APP_INITIALIZER,
-  ApplicationConfig, importProvidersFrom,
-  provideBrowserGlobalErrorListeners,
-  provideZoneChangeDetection
-} from '@angular/core';
+import {ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {providePrimeNG} from 'primeng/config';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {MyPreset} from '../theme-preset';
-import {HttpClient, provideHttpClient} from '@angular/common/http';
+import {provideHttpClient} from '@angular/common/http';
 import {MessageService} from 'primeng/api';
-import {provideTranslateService, TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {provideTranslateHttpLoader, TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {provideTranslateService} from '@ngx-translate/core';
+import {provideTranslateHttpLoader} from '@ngx-translate/http-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -12,7 +12,6 @@ import {Pricing} from './pricing/pricing';
 import {BreakpointService} from './services/breakpoint.service';
 import {ContactService} from './services/contact.service';
 import {Toast} from 'primeng/toast';
-import {switchMap, tap} from 'rxjs';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,5 @@
 import {effect, inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { loadTranslations } from '@angular/localize';
-import { ɵsetLocaleId as setLocaleId } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 @Injectable({

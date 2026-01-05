@@ -1,8 +1,7 @@
-import { Component, output, signal, inject, computed } from '@angular/core';
-import { PrimaryBtn } from '../common/primary-btn/primary-btn';
-import { DrawerModule } from 'primeng/drawer';
-import { BreakpointService } from '../services/breakpoint.service';
-import { PrimeIcons } from 'primeng/api';
+import {Component, computed, inject, output, signal} from '@angular/core';
+import {PrimaryBtn} from '../common/primary-btn/primary-btn';
+import {DrawerModule} from 'primeng/drawer';
+import {BreakpointService} from '../services/breakpoint.service';
 import {Select} from 'primeng/select';
 import {FormsModule} from '@angular/forms';
 import {WordpressService} from '../services/wordpress.service';
